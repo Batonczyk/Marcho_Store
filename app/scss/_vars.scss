@@ -1,0 +1,29 @@
+// Colors
+$default: #8d8d8d;
+$accent-color: #fe3e57;
+$link-text: #29282d;
+
+%quicksand-400 {
+    font-family: "Quicksand-Regular", sans-serif;
+    font-weight: 400;
+}
+
+%quicksand-500 {
+    font-family: "Quicksand-Medium", sans-serif;
+    font-weight: 500;
+}
+
+%quicksand-700 {
+    font-family: "Quicksand-Bold", sans-serif;
+    font-weight: 700;
+}
+
+%roboto-400 {
+    font-family: "Roboto-Bold", sans-serif;
+    font-weight: 400;
+}
+
+%roboto-700 {
+    font-family: "Roboto-Bold", sans-serif;
+    font-weight: 700;
+}

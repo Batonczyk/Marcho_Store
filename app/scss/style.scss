@@ -2,3 +2,73 @@
 @import 'fonts';
 @import 'global';
 @import 'reset';
+
+.header {
+    padding: 40px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        color: $link-text;
+
+        &:not(:last-child) {
+            margin-right: 35px;
+        }
+    }
+
+    &__link {
+        padding-bottom: 1px;
+        @extend %quicksand-400;
+        transition: border-bottom 0.2s ease, color 0.2s ease;
+
+        &:hover {
+            color: $accent-color;
+            @extend %quicksand-700;
+            border-bottom: 1px solid $accent-color;
+        }
+    }
+
+    &__link--active {
+        @extend %quicksand-700;
+        color: $accent-color;
+        border-bottom: 1px solid $accent-color;
+    }
+
+    &__user {
+        display: flex;
+    }
+
+    &__user-nav {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-right: 25px;
+        }
+
+        .svg-btn {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__user-num {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: -10px;
+        right: -14px;
+        border-radius: 50%;
+        background-color: $accent-color;
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+    }
+}

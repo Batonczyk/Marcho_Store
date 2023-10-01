@@ -34,7 +34,7 @@ function browsersync() {
 //  Нам потрібно буде скачати і установити два пакета concat i uglify
 // npm i gulp-concat gulp-uglify-es --save-dev
 function scripts() {
-  return src(["app/js/script1.js"])
+  return src(["app/js/main.js"])
     .pipe(concat("script.min.js")) // конкатинуємо в один файл
     .pipe(uglify()) // зжимаємо файли
     .pipe(dest("app/js/")) // вигружаю готові файли в папку за призначенням
@@ -60,7 +60,7 @@ function startWatch() {
   watch(["app/**/*.js", "!app/**/*.min.js"], scripts); // вибрані усі файли в в app/ js з розширеням js, але крім !app/**/*.min.js вже змініфікованого файлу
   watch(["app/scss/**/*.scss"], styles); // слідкую за усіма файлами scss та їх змінами
   watch(["app/**/*.html"]).on("change", browserSync.reload); // слідкую за усіма html
-  watch(["app/img/svg/*.svg"], svgSprites);
+  watch(["app/images/icons/*.svg"], svgSprites);
 }
 
 // Праця зі стилями. Створю функцію для стиолів. Створю в папці файл scss
@@ -99,7 +99,7 @@ function styles() {
 // npm i --save-dev compress-images gifsicle@5.3.0 pngquant-bin@6.0.0 gulp-clean
 // УВАГА - для стабільної роботи, потрібно поставити pngquant-bin@6.0.0 версія(6) і gifsicle версии 5.3.0.
 function imageMin() {
-  return src("app/img/**/*.*")
+  return src("app/images/**/*.*")
     .pipe(
       imagecomp([
         imagecomp.gifsicle({
@@ -114,7 +114,7 @@ function imageMin() {
         }),
       ])
     )
-    .pipe(dest("dist/img"));
+    .pipe(dest("dist/images"));
 }
 
 function buildcopy() {
@@ -123,7 +123,7 @@ function buildcopy() {
       "app/**/*.html",
       "app/css/style.min.css",
       "app/js/script.min.js",
-      "app/img/**/*.*",
+      "app/images/**/*.*",
     ],
     {
       base: "app",
@@ -133,13 +133,13 @@ function buildcopy() {
 
 //  буваж при роботі з зображенями, потрібно очистити усю папку з фото
 function cleanImg() {
-  return src("app/img/dest", {
+  return src("app/images/dest", {
     allowEmpty: true,
   }).pipe(clean()); // видаляю всі готові фото
 }
 
 function svgSprites() {
-  return src("app/img/icons/*.svg")
+  return src("app/images/icon/*.svg")
     .pipe(
       svgSprite({
         mode: {
@@ -150,7 +150,7 @@ function svgSprites() {
         },
       })
     )
-    .pipe(dest("app/img"));
+    .pipe(dest("app/images"));
 }
 
 exports.browsersync = browsersync; // експортую наш таск як функцію
