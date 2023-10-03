@@ -133,7 +133,7 @@ function buildcopy() {
 
 //  буваж при роботі з зображенями, потрібно очистити усю папку з фото
 function cleanImg() {
-  return src("app/images/dest", {
+  return src("app/images/dist", {
     allowEmpty: true,
   }).pipe(clean()); // видаляю всі готові фото
 }
