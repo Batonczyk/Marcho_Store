@@ -73,6 +73,41 @@
     }
 }
 
+.main {
+    .top-slider {
+        &__container {
+            max-width: 1560px;
+        }
+
+        &__box {
+            overflow: hidden;
+        }
+
+        &__inner {
+            position: relative;
+            display: flex;
+            // transition: all 0.9s ease-out;
+        }
+
+        &__item {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__content {
+            max-width: 670px;
+        }
+
+        &__title {
+            @extend %roboto-700;
+            font-size: 58px;
+        }
+
+    }
+}
+
 .footer {
     background-color: $bg;
 

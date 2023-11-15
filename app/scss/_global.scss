@@ -1,5 +1,5 @@
 html,
-body{
+body {
     height: 100%;
 }
 
@@ -12,9 +12,10 @@ body {
     line-height: 1.6;
 }
 
-.main{
+.main {
     flex-grow: 1;
 }
+
 .container {
     max-width: 1200px;
     padding: 0 15px;
@@ -31,4 +32,21 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+.dots {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    cursor: pointer;
+    &:not(:last-child){
+        margin-right: 10px;
+    }
 }
