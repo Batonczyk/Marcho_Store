@@ -2,6 +2,7 @@ const boxSlider = document.querySelector('.top-slider__box');
 const slidesContainer = document.querySelector('.top-slider__inner');
 const slideWidth = slidesContainer.clientWidth
 let slides = [...slidesContainer.children];
+console.log(slides.length)
 const firstCloneSlide = slides[0].cloneNode(true),
     lastClonedSlide = slides[slides.length - 1].cloneNode(true);
 firstCloneSlide.classList.add('clonefirst'),
@@ -9,13 +10,13 @@ firstCloneSlide.classList.add('clonefirst'),
 slidesContainer.append(firstCloneSlide),
     slidesContainer.prepend(lastClonedSlide);
 slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
-let index = 1;
+let ind = 1;
 let position;
 console.log(slides)
 
 const settingsSlider = {
-    autoslide: true,
-    interval: 5000,
+    autoslide: false,
+    interval: 4000,
 }
 // Creating dots in carousel slider
 const createDots = (slider, init) => {
@@ -24,8 +25,16 @@ const createDots = (slider, init) => {
     init.forEach((slide, index) => {
         const dot = document.createElement('li');
         dot.classList.add('dot');
+        if (index === 0) {
+            dot.classList.add('active-dots'); // Add 'active-dots' to the first dot
+        }
         dot.addEventListener('click', () => {
-            slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`
+            const dots = container.querySelectorAll('.dot');
+            dots.forEach(elem => elem.classList.remove('active-dots'));
+            dot.classList.add('active-dots');
+            ind = index + 1;
+            slidesContainer.style.transition = "all 0.5s linear";
+            slidesContainer.style.transform = `translateX(-${slideWidth * ind}px)`
         })
         container.appendChild(dot)
     });
@@ -38,37 +47,57 @@ const startAutoSlide = () => {
         position = setInterval(nextSlide, settingsSlider.interval);
     }
 }
-
 const newCloneNideList = () => [...slidesContainer.children];
-console.log(newCloneNideList())
 function nextSlide() {
-    if (index >= slides.length - 1) return;
-    index++;
-    slidesContainer.style.transition = "all 0.5s linear";
-    slidesContainer.style.transform = `translateX(-${slideWidth * index}px)`;
+    if (ind >= slides.length - 1) return;
+    ind++;
+    updateDostsPosition()
+    updateSlidePosition()
 }
 
 function prevSlide() {
-    if (index <= 0) return;
-    index--;
-    slidesContainer.style.transform = `translateX(-${slideWidth * index}px)`;
+    if (ind <= 0) return;
+    updateSlidePosition()
+}
+
+function updateDostsPosition() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.remove('active-dots');
+        if (index === ind - 1) {
+            dot.classList.add('active-dots');
+        }
+    })
 }
 slidesContainer.addEventListener('transitionend', function () {
     slides = newCloneNideList();
-    if (slides[index].classList.contains('clonefirst')) {
+    if (slides[ind].classList.contains('clonefirst')) {
         slidesContainer.style.transition = 'none';
-        index = 1;
-        slidesContainer.style.transform = `translateX(-${slideWidth * index}px)`;
+        ind = 1;
+        slidesContainer.style.transform = `translateX(-${slideWidth * ind}px)`;
     }
-    if (slides[index].classList.contains('clonelast')) {
+    if (slides[ind].classList.contains('clonelast')) {
         slidesContainer.style.transition = 'none';
-        index = slides.length - 2;
-        slidesContainer.style.transform = `translateX(-${slideWidth * index}px)`;
+        ind = slides.length - 2;
+        slidesContainer.style.transform = `translateX(-${slideWidth * ind}px)`;
     }
 });
+
+function updateSlidePosition() {
+    slidesContainer.style.transition = 'all 0.5s linear';
+    slidesContainer.style.transform = `translateX(-${slideWidth * ind}px)`;
+}
 
 boxSlider.addEventListener('mouseenter', function () {
     clearInterval(position);
 })
-boxSlider.addEventListener('mouseleave', startAutoSlide)
+boxSlider.addEventListener('mouseleave', startAutoSlide);
+function resize() { // adaptive slider size
+    slidesContainer.style.width = slideWidth * `${slides.length}px`;
+    slides.forEach((elem) => {
+        elem.style.width = `${slideWidth}px`;
+        elem.style.heigth = 'auto';
+    });
+}
+window.addEventListener('resize', resize);
 export { boxSlider, slides, slidesContainer, createDots, startAutoSlide }
