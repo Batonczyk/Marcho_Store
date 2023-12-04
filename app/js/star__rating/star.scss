@@ -1,0 +1,17 @@
+.product-item__star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star {
+    width: 18px;
+    height: 16px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    path {
+        fill: #ffc35b;
+    }
+}
