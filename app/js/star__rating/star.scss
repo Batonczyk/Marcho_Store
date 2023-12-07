@@ -1,9 +1,3 @@
-.product-item__star {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .star {
     width: 18px;
     height: 16px;
@@ -14,4 +8,8 @@
     path {
         fill: #ffc35b;
     }
+}
+
+.star.active path {
+    fill: aqua;
 }
