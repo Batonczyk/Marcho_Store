@@ -153,6 +153,18 @@ function svgSprites() {
     .pipe(dest("app/images"));
 }
 
+function includeS() {
+  return src(["app/*.html"])
+    .pipe(
+      includes({
+        prefix: "@@",
+        basepath: "@file",
+      })
+    )
+    .pipe(dest("app"))
+    .pipe(browserSync.stream());
+}
+
 exports.browsersync = browsersync; // експортую наш таск як функцію
 exports.scripts = scripts; // експорт функції для роботи
 exports.styles = styles; // експортую для роботи
@@ -160,6 +172,7 @@ exports.imageMin = imageMin; // укспорт для роботи
 exports.cleanImg = cleanImg;
 exports.includes = includeS; // укспорт для роботи
 exports.svgSprites = svgSprites;
+exports.includeS = includeS;
 // exports.default - дозволяє запускати однією командою gulp
 exports.build = series(cleanImg, imageMin, buildcopy);
 exports.default = parallel(
@@ -168,5 +181,6 @@ exports.default = parallel(
   styles,
   scripts,
   browsersync,
-  startWatch
+  startWatch,
+  includeS
 ); // тепер ці функцї запускаються паралельно

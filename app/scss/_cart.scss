@@ -1,0 +1,128 @@
+.cart {
+    display: none;
+    position: absolute;
+    padding: 20px 15px 20px 15px;
+    max-width: 650px;
+    width: 100%;
+    top: 110px;
+    right: 70px;
+    background-color: #fff;
+    box-shadow: 0px 25px 40px #1687d933;
+    border-radius: 10px;
+    z-index: 4;
+    line-height: 1.6;
+
+    &__box {
+        padding: 0 5px;
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        padding: 15px;
+        font-size: 26px;
+        border-bottom: 1px solid $default;
+    }
+
+    &__options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    &__continue,
+    &__clear,
+    &__info {
+        font-family: "Quicksand-Bold", sans-serif;
+        font-weight: 700;
+    }
+
+    &__continue {
+        color: $link-text;
+    }
+
+    &__clear {
+        color: $accent-color;
+    }
+
+    &__inner {
+        height: 300px;
+        margin-bottom: 25px;
+        padding: 5px 0;
+        border-bottom: 1px solid $default;
+        overflow: scroll;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px 10px;
+
+        &:not(:last-child) {
+            margin-bottom: 25px;
+            border-bottom: 1px solid $default;
+        }
+    }
+
+    &__img {
+        width: 20%;
+        height: 120px;
+    }
+
+    &__info {
+        max-width: 200px;
+        width: 100%;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    &__amount {
+        color: $accent-color;
+    }
+
+    .cart-counter {
+        display: flex;
+        align-items: center;
+
+        &__plus,
+        &__minus {
+            @extend %btnacctent;
+            padding: 2px 10px;
+            min-width: 30px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        &__count {
+            min-width: 25px;
+            text-align: center;
+        }
+    }
+
+    .cart-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__price span {
+            font-size: 24px;
+            color: $accent-color;
+        }
+
+        &__checkout {
+            @extend %btnacctent;
+            padding: 8px 15px;
+            border-radius: 3px;
+            line-height: inherit;
+            max-width: 150px;
+            height: 50px;
+        }
+    }
+}
+
+.active-cart {
+    display: block;
+}

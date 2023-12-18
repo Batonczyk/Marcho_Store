@@ -1,9 +1,9 @@
-const productList = document.querySelector('.product__items');
-const productItem = [...productList.children];
-const spinerAnimation = document.querySelector('.product__more'),
+import { addToCart } from "./cart__store/cart.js";
+const productList = document.querySelector('.product__items'),
+    spinerAnimation = document.querySelector('.product__more'),
+    productItem = [...productList.children],
     spinner = '<span class="spinner"></span>';
-console.log(productItem);
-let countCard = 0;
+    let countCard = 0;
 
 spinerAnimation.addEventListener('click', async function (e) {
     e.preventDefault();
@@ -17,7 +17,7 @@ spinerAnimation.addEventListener('click', async function (e) {
             console.log(response)
             for (let i = countCard; i < countCard + 3 && i < response.length; i++) {
                 const newCard = createCard(response[i]);
-                productList.appendChild(newCard)
+                productList.appendChild(newCard);
             }
             countCard += 3;
         } catch (err) {
@@ -28,12 +28,12 @@ spinerAnimation.addEventListener('click', async function (e) {
             spinerAnimation.disabled = false;
         }
     }
-})
+});
 function createCard(cardStore) {
     const card = document.createElement('li');
     card.className = 'product-item';
+    card.setAttribute('data-cart', `${cardStore.id}`);
     if (cardStore) {
-        // console.log(cardStore)
         const generateStar = starRatingGenerate(cardStore.rating.rate);
         const generationCardLayout = `
         <div class="product-item__img-box">
@@ -44,7 +44,7 @@ function createCard(cardStore) {
                     <use xlink:href="images/sprite.svg#search"></use>
                 </svg>
             </a>
-            <a class="product-item__link product-item__link--line" href="#">
+            <a class="product-item__link product-item__link--line" href="#" data-btn>
                 <svg class="product-item__icon" fill="none">
                     <use xlink:href="images/sprite.svg#bag"></use>
                 </svg>
@@ -70,9 +70,9 @@ function createCard(cardStore) {
     return card
     function starRatingGenerate(rating) {
         const fullStars = Math.floor(rating);
-        console.log(fullStars)
+        // console.log(fullStars)
         const halfStar = Math.ceil(rating - fullStars);
-        console.log(halfStar)
+        // console.log(halfStar)
         let starLine = '';
         for (let i = 1; i < fullStars; i++) {
             starLine += `<span class="star" data-index="5">
@@ -86,7 +86,40 @@ function createCard(cardStore) {
         }
         return starLine;
     }
-
 }
-export {spinerAnimation }
+
+// document.addEventListener('click', function (e) {
+//     const btn = e.target.closest('[data-btn]')
+//     if (btn) {
+//         e.preventDefault();
+//         const card = btn.closest('.product-item');
+//         addToCart(card)
+//         console.log(e.target, card)
+//         const productInfo = {
+//             id: card.dataset.cart,
+//             imgSrc: card.querySelector('.product-item__images').getAttribute('src'),
+//             title: card.querySelector('.product-item__title').textContent,
+//             price: card.querySelector('.product-item__new').innerHTML,
+//         };
+//         console.log(productInfo)
+//         const cartItemHtml = `
+//         <li class="cart__item">
+//         <img class="cart__img" src="${productInfo.imgSrc}" alt="nothing">
+//         <div class="cart-counter">
+//         <button class="cart-counter__plus" type="button">+</button>
+//         <span class="cart-counter__count">1</span>
+//         <button class="cart-counter__minus" type="button">-</button>
+//         </div>
+//         <p class="cart__info">
+//          ${productInfo.title}
+//         </p>
+//         <p class="cart__amount">${productInfo.price}</p>
+//         </li>`
+//         cartWrapper.insertAdjacentHTML('beforeend', cartItemHtml);
+//         countCard++
+//     }
+// })
+
+
+export { spinerAnimation }
 

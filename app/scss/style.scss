@@ -1,10 +1,13 @@
 @import 'vars';
 @import 'fonts';
 @import 'global';
-@import '../js/star__rating/star';
+@import 'cart';
+@import 'star';
+@import 'timer';
 @import 'reset';
 
 .header {
+    position: relative;
     padding: 40px 0;
 }
 
@@ -452,6 +455,65 @@
                     }
                 }
             }
+        }
+    }
+
+    .promo {
+        padding: 150px 0 160px;
+        background-image: url('../images/bg-promo.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+
+        &__inner {
+            max-width: 570px;
+            width: 100%;
+            margin-left: auto;
+        }
+
+        &__title{
+            margin-bottom: 30px;
+        }
+
+        &__subtitle {
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: $accent-color;
+            text-transform: uppercase;
+        }
+
+        &__link {
+            position: relative;
+            display: inline-block;
+            padding: 14px 27px;
+            max-width: 149px;
+            width: 100%;
+            min-height: 55px;
+            border: 1px solid #fe3e57;
+            text-transform: uppercase;
+            color: #29282d;
+            transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+
+            &:hover {
+                background-color: #fe3e57;
+                color: #fff;
+                border-color: #29282d;
+            }
+        }
+        &__timer{
+            margin-bottom: 50px;
+        }
+    }
+
+    .partners {
+        padding-top: 75px;
+
+        .partners-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 170px;
         }
     }
 }

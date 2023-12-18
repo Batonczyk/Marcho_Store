@@ -71,11 +71,53 @@
                             <svg class="svg-btn" fill="none">
                                 <use xlink:href="images/sprite.svg#cart"></use>
                             </svg>
-                            <span class="menu__user-num">7</span>
+                            <span class="menu__user-num" data-count>0</span>
                         </a>
                     </li>
-                </ul>
-            </nav>
+                    <div class="cart">
+                        <div class="cart__box">
+                            <h3 class="cart__title title">
+                                Cart Store
+                            </h3>
+                            <ul class="cart__options">
+                                <li class="cart__continue" data-continue>
+                                    continue shopping
+                                </li>
+                                <li class="cart__clear" data-clear>
+                                    Clear cart
+                                </li>
+                            </ul>
+                            <ul class="cart__inner">
+                                <li class="cart__item">
+                                    <img class="cart__img" src="images/product/product1.jpg" alt="nothing">
+                                    <div class="cart-counter">
+                                        <button class="cart-counter__plus" type="button">+</button>
+                                        <span class="cart-counter__count">1</span>
+                                        <button class="cart-counter__minus" type="button">-</button>
+                                    </div>
+                                    <p class="cart__info">
+                                        pants, xxl
+                                    </p>
+                                    <p class="cart__amount">$27.99</p>
+                                </li>
+                            </ul>
+                            <div class="cart-total">
+                                <div class="cart-total__price">
+                                    <p class="cart-total__total">
+                                        <strong>Total price</strong>
+                                    </p>
+                                    <span>$27.99</span>
+                                </div>
+                                <button class="cart-total__checkout" type="submit">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+        </ul>
+        </nav>
         </div>
     </header>
     <main class="main">
@@ -257,11 +299,18 @@
         <section class="fasion">
             <div class="container">
                 <div class="fasion__inner">
+                    <div class="overlay"></div>
                     <div class="fasion__item">
-                        <div class="popup">
-                            <div class="overlay"></div>
-                            <span class="close"></span>
-                           <iframe  class="popup__frame" src="https://www.youtube.com/watch?v=1ap0baidLVo" frameborder="0" allowfullscreen></iframe>
+                        <div class="popup active-popup">
+                            <div class="popup__inner">
+                                <span class="close">
+                                    <span class="prompt">Close</span>
+                                    <svg class="popup__close" fill="none">
+                                        <use xlink:href="images/sprite.svg#close"></use>
+                                    </svg>
+                                </span>
+                                <iframe class="popup__frame" frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
                         <a class="fasion__popup" href="#">
                             <img class="fasion__img" src="images/video_fasion.jpg" alt="fasion 2023 play video">
@@ -286,6 +335,272 @@
                 </div>
             </div>
         </section>
+        <section class="product">
+            <div class="container">
+                <h3 class="product__title title">
+                    TRENDING PRODUCTS
+                </h3>
+                <p class="product__subtitle subtitle">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodmoe tempor incididunt ut
+                    labore et dolore aliqua.
+                </p>
+                <ul class="product__items">
+                    <li class="product-item">
+                        <div class="product-item__img-box">
+                            <img class="product-item__images" src="images/product/product1.jpg" alt="product 1">
+                            <div class="product-item__box">
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#search"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link product-item__link--line" href="#" data-id="1">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#bag"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#heart"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-item__star" data-rating="0">
+                            das
+                        </div>
+                        <h4 class="product-item__title">
+                            White Polo Men’s T-Shirt
+                        </h4>
+                        <ul class="product-item__price">
+                            <li class="product-item__new">$34.00</li>
+                            <li class="product-item__old">$27.00</li>
+                        </ul>
+                    </li>
+                    <li class="product-item product-item--sale">
+                        <div class="product-item__img-box">
+                            <img class="product-item__images" src="images/product/product2.jpg" alt="product 1">
+                            <div class="product-item__box">
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#search"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link product-item__link--line" href="#" data-id="2">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#bag"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#heart"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-item__star">das</div>
+                        <h4 class="product-item__title">
+                            White Polo Men’s T-Shirt
+                        </h4>
+                        <ul class="product-item__price">
+                            <li class="product-item__new">$34.00</li>
+                            <li class="product-item__old">$27.00</li>
+                        </ul>
+                    </li>
+                    <li class="product-item">
+                        <div class="product-item__img-box">
+                            <img class="product-item__images" src="images/product/product3.jpg" alt="product 1">
+                            <div class="product-item__box">
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#search"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link product-item__link--line" href="#" data-id="3">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#bag"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#heart"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-item__star">das</div>
+                        <h4 class="product-item__title">
+                            White Polo Men’s T-Shirt
+                        </h4>
+                        <ul class="product-item__price">
+                            <li class="product-item__new">$34.00</li>
+                            <li class="product-item__old">$27.00</li>
+                        </ul>
+                    </li>
+                    <li class="product-item product-item--sale">
+                        <div class="product-item__img-box">
+                            <img class="product-item__images" src="images/product/product4.jpg" alt="product 1">
+                            <div class="product-item__box">
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#search"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link product-item__link--line" href="#" data-id="4">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#bag"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#heart"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-item__star">das</div>
+                        <h4 class="product-item__title">
+                            White Polo Men’s T-Shirt
+                        </h4>
+                        <ul class="product-item__price">
+                            <li class="product-item__new">$34.00</li>
+                            <li class="product-item__old">$27.00</li>
+                        </ul>
+                    </li>
+                    <li class="product-item">
+                        <div class="product-item__img-box">
+                            <img class="product-item__images" src="images/product/product5.jpg" alt="product 1">
+                            <div class="product-item__box">
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#search"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link product-item__link--line" href="#" data-id="5">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#bag"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#heart"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-item__star">das</div>
+                        <h4 class="product-item__title">
+                            White Polo Men’s T-Shirt
+                        </h4>
+                        <ul class="product-item__price">
+                            <li class="product-item__new">$34.00</li>
+                            <li class="product-item__old">$27.00</li>
+                        </ul>
+                    </li>
+                    <li class="product-item product-item--sale">
+                        <div class="product-item__img-box">
+                            <img class="product-item__images" src="images/product/product6.jpg" alt="product 1">
+                            <div class="product-item__box">
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#search"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link product-item__link--line" href="#" data-id="6">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#bag"></use>
+                                    </svg>
+                                </a>
+                                <a class="product-item__link" href="#">
+                                    <svg class="product-item__icon" fill="none">
+                                        <use xlink:href="images/sprite.svg#heart"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-item__star">das</div>
+                        <h4 class="product-item__title">
+                            White Polo Men’s T-Shirt
+                        </h4>
+                        <ul class="product-item__price">
+                            <li class="product-item__new">$34.00</li>
+                            <li class="product-item__old">$27.00</li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="product__more" type="button">
+                    LOAD MORE
+                </button>
+            </div>
+        </section>
+        <div class="promo">
+            <div class="container">
+                <div class="promo__inner">
+                    <p class="promo__subtitle subtitle">
+                        Style Fashion
+                    </p>
+                    <h3 class="promo__title title">
+                        DEAL OF THE DAY
+                    </h3>
+                    <div class="promo__timer timer" data-time="'2024-01-07'">
+                        <ul class="timer__items">
+                            <div class="timer__box">
+                                <li class="timer__item days"></li>
+                                <span>
+                                    Days
+                                </span>
+                            </div>
+                            <div class="timer__box">
+                                <li class="timer__item hours"></li>
+                                <span>
+                                    Hours
+                                </span>
+                            </div>
+                            <div class="timer__box">
+                                <li class="timer__item minutes"></li>
+                                <span>
+                                    Minutes
+                                </span>
+                            </div>
+
+                            <div class="timer__box">
+                                <li class="timer__item seconds"></li>
+                                <span>
+                                    Seconds
+                                </span>
+                            </div>
+                        </ul>
+                    </div>
+                    <a class="promo__link" href="#">
+                        SHOP NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="partners">
+            <div class="container">
+                <ul class="partners-box">
+                    <li class="partners-box__item">
+                        <img class="partners-box__images" src="images/partners/1.png" alt="logo partners">
+                    </li>
+                    <li class="partners-box__item">
+                        <img class="partners-box__images" src="images/partners/2.png" alt="logo partners">
+                    </li>
+                    <li class="partners-box__item">
+                        <img class="partners-box__images" src="images/partners/3.png" alt="logo partners">
+                    </li>
+                    <li class="partners-box__item">
+                        <img class="partners-box__images" src="images/partners/4.png" alt="logo partners">
+                    </li>
+                    <li class="partners-box__item">
+                        <img class="partners-box__images" src="images/partners/5.png" alt="logo partners">
+                    </li>
+                    <li class="partners-box__item">
+                        <img class="partners-box__images" src="images/partners/6.png" alt="logo partners">
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <div class="container">

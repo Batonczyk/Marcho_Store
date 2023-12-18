@@ -179,6 +179,7 @@ body {
 
     &__link {
         display: inherit;
+        padding: 5px;
 
         &:hover .product-item__icon {
             fill: $accent-color;
