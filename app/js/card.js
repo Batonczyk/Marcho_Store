@@ -1,4 +1,3 @@
-import { addToCart } from "./cart__store/cart.js";
 const productList = document.querySelector('.product__items'),
     spinerAnimation = document.querySelector('.product__more'),
     productItem = [...productList.children],
