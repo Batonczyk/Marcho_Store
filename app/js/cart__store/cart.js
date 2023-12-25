@@ -2,6 +2,7 @@ const navBar = document.querySelector('.menu__user'),
     navChilds = [...navBar.children],
     navCart = navChilds[navChilds.length - 2],
     cartBtn = navChilds[navChilds.length - 1],
+    menuUserNum = document.querySelectorAll('.menu__user-num'),
     cartWrapper = document.querySelector('.cart__inner'),
     numCount = document.querySelector('[data-count]');
 
@@ -19,6 +20,17 @@ document.addEventListener('click', function (e) {
         cartBtn.classList.remove('active-cart');
     }
 });
+
+function styleMenuNav(span) {
+    span.forEach((item) => {
+        const textCount = parseInt(item.textContent);
+        if (textCount < 1) {
+            item.style.display = 'none';
+        } else {
+            item.style.display = 'block';
+        }
+    });
+}
 
 function addToCart(cartInner, productInfo) {
     const cartItemHtml = `
@@ -44,6 +56,8 @@ function updateCartItem(cartItem) {
 
 function updateCartCounter() {
     numCount.innerHTML = count;
+    styleMenuNav(menuUserNum)
+    saveProductLocal()
 }
 
 function saveProductLocal() {
@@ -60,13 +74,44 @@ function loadCart(cartInner) {
     }
 
     updateCartCounter();
+    calcCartPrice()
 }
 
+function calcCartPrice() {
+    let total = 0;
+    const cartItem = document.querySelectorAll('.cart__item');
+    const totalPrice = document.querySelector('[data-price]')
+    if (!totalPrice) {
+        console.error('Element not found');
+        return
+    }
+    cartItem.forEach((item) => {
+        const amount = parseInt(item.querySelector('[data-counter]').textContent);
+        const newPrice = parseInt(item.querySelector('.cart__amount').textContent.slice(1));
+        const stringPrice = parseFloat(newPrice)
+        if (!isNaN(stringPrice)) {
+            const currentPrice = amount * newPrice;
+            total += currentPrice;
+        }
+    });
+    totalPrice.textContent = `$${total}`;
+}
+
+function clearAll() {
+    const clearBtn = document.querySelector('.cart__clear');
+    clearBtn.addEventListener('click', () => {
+        cart.splice(0, cart.length);
+        count = 0;
+        saveProductLocal();
+        calcCartPrice();
+        updateCartCounter()
+    })
+}
+clearAll()
 document.addEventListener('click', function (e) {
     const btn = e.target.closest('[data-btn]');
     const plusBtn = e.target.closest('[data-plus]');
     const minusBtn = e.target.closest('[data-minus]');
-
     if (btn) {
         e.preventDefault();
         const card = btn.closest('.product-item');
@@ -88,13 +133,14 @@ document.addEventListener('click', function (e) {
 
             cart.push(productInfo);
             addToCart(cartWrapper, productInfo);
+            styleMenuNav(menuUserNum);
+            calcCartPrice()
         }
 
         count++;
         saveProductLocal();
         updateCartCounter();
     } else if (plusBtn || minusBtn) {
-        // Обработка нажатий кнопок "плюс" и "минус" в карточке товара
         const cartItem = e.target.closest('.cart__item');
         const counterCart = cartItem.querySelector('[data-counter]');
         const productId = cartItem.dataset.id;
@@ -104,22 +150,27 @@ document.addEventListener('click', function (e) {
             if (cartItemIndex !== -1) {
                 cart[cartItemIndex].quantity++;
                 counterCart.textContent = cart[cartItemIndex].quantity;
+                count++
             }
         } else if (minusBtn) {
             const cartItemIndex = cart.findIndex(item => item.id === productId);
             if (cartItemIndex !== -1 && cart[cartItemIndex].quantity > 1) {
                 cart[cartItemIndex].quantity--;
                 counterCart.textContent = cart[cartItemIndex].quantity;
+                count--
+            } else {
+                cart.splice(cartItemIndex, 1);
+                cartItem.remove();
+                count--
+                updateCartCounter();
             }
         }
-
         saveProductLocal();
         updateCartCounter();
+        calcCartPrice()
     }
 });
-
-
 loadCart(cartWrapper);
+styleMenuNav(menuUserNum);
 
-// loadCart(cartWrapper);
 export { navCart, addToCart }

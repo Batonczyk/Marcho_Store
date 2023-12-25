@@ -39,6 +39,15 @@
         font-weight: 700;
     }
 
+    &__continue ,
+    &__clear{
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+            transition: transform .2s ease;
+        }
+    }
+
     &__continue {
         color: $link-text;
     }
