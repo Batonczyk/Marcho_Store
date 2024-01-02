@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.min.css">
-    <title>Document</title>
+    <title>Order Placement</title>
 </head>
 
 <body>
-
     <header class="header">
         <div class="container">
             <nav class="menu header__inner">
@@ -63,7 +62,7 @@
                             <svg class="svg-btn" fill="none">
                                 <use xlink:href="images/sprite.svg#heart"></use>
                             </svg>
-                            <span class="menu__user-num">3</span>
+                            <span class="menu__user-num">0</span>
                         </a>
                     </li>
                     <li class="menu__user-nav">
@@ -71,14 +70,115 @@
                             <svg class="svg-btn" fill="none">
                                 <use xlink:href="images/sprite.svg#cart"></use>
                             </svg>
-                            <span class="menu__user-num">7</span>
+                            <span class="menu__user-num" data-count>0</span>
                         </a>
                     </li>
+                    <div class="cart">
+                        <div class="cart__box">
+                            <h3 class="cart__title title">
+                                Cart Store
+                            </h3>
+                            <ul class="cart__options">
+                                <li class="cart__continue" data-continue>
+                                    continue shopping
+                                </li>
+                                <li class="cart__clear" data-clear>
+                                    Clear cart
+                                </li>
+                            </ul>
+                            <ul class="cart__inner"></ul>
+                            <div class="cart-total">
+                                <div class="cart-total__price">
+                                    <p class="cart-total__total">
+                                        <strong>Total price</strong>
+                                    </p>
+                                    <span data-price></span>
+                                </div>
+                                <button class="cart-total__checkout" type="submit">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </ul>
             </nav>
         </div>
     </header>
-    <main class="main"></main>
+    <main class="main">
+        <section class="order">
+            <div class="container">
+                <div class="order__inner">
+                    <h2 class="title order__title">
+                        Order placement
+                    </h2>
+                    <form class="order-form">
+                        <div class="order-form__box">
+                            <div class="order-form__data">
+                                <h4 class="order-form__title">
+                                    Your contact details
+                                </h4>
+                                <label for="name"></label>
+                                <input class="order-form__name" type="text" data-name id="name" placeholder="Name">
+                                <label for="surname"></label>
+                                <input class="order-form__surname" type="text" data-surname id="surname"
+                                    placeholder="Surname">
+                                <label for="email"></label>
+                                <input class="order-form__email" type="email" data-email id="email" placeholder="Email">
+                                <label for="phone"></label>
+                                <input class="order-form__phone" type="text" data-email id="phone" placeholder="Prone namber">
+                            </div>
+                            <div class="order-form__delivery">
+                                <h4 class="order-form__title">
+                                    Delivery
+                                </h4>
+                                <label for="country">Country</label>
+                                <select id="country" data-country></select>
+                                <label for="city">City</label>
+                                <input id="city" data-city></input>
+                                <label for="street">Street</label>
+                                <input type="text" id="street">
+                                <label for="postid">Postal code</label>
+                                <input type="text" id="postid">
+                                <ul class="order-form__list">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="order-form__ordering">
+                            <h4 class="order-form__title">
+                                Ordering
+                            </h4>
+                            <ul class="order-form__order">
+                            
+                            </ul>
+                        </div>
+                        <aside class="order-checkout">
+                            <h2 class="order-checkout__title">
+                                Total
+                            </h2>
+                            <table class="order-checkout__table">
+                                <tr class="order-checkout__row">
+                                    <td>Shipping costs</td>
+                                    <td><b data-count>0</b></td>
+                                </tr>
+                                <tr class="order-checkout__row">
+                                    <td>Delivery free</td>
+                                    <td data-deliv>Yes</td>
+                                </tr>
+                                <tr class="order-checkout__row">
+                                    <td>Amount</td>
+                                    <td><b data-price></b></td>
+                                </tr>
+                            </table>
+                            <button class="order-form__submit" type="submit">
+                                Confirm
+                            </button>
+                        </aside>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
@@ -237,8 +337,8 @@
             </div>
         </div>
     </footer>
-
-    <script src="./js/script.min.js" type="module"></script>
+    <script src="js/module/cart.js" defer></script>
+    <script src="js/module/order.js" defer></script>
 </body>
 
 </html>
