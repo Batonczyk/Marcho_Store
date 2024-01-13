@@ -1,4 +1,4 @@
-(function () {
+const cartModule = (function () {
     const navBar = document.querySelector('.menu__user'),
         navChilds = [...navBar.children],
         navCart = navChilds[navChilds.length - 2],
@@ -120,17 +120,17 @@
         totalPrice.textContent = `$${total}`;
     }
 
-    function clearAll() {
-        const clearBtn = document.querySelector('.cart__clear');
+    function clearAll(btnClear) {
+        const clearBtn = document.querySelector(btnClear);
         clearBtn.addEventListener('click', () => {
             cart.splice(0, cart.length);
             count = 0;
             saveProductLocal();
             calcCartPrice('[data-price]');
             updateCartCounter()
-        })
+        });
     }
-    clearAll()
+    clearAll('.cart__clear')
     document.addEventListener('click', function (e) {
         const btn = e.target.closest('[data-btn]');
         const plusBtn = e.target.closest('[data-plus]');
@@ -204,7 +204,8 @@
     window.updateCartCounter = updateCartCounter;
     window.calcCartPrice = calcCartPrice;
     window.clearAll = clearAll;
-
+    window.saveProductLocal = saveProductLocal;
+    window.checkCartFull = checkCartFull;
     initialize();
 })();
 
