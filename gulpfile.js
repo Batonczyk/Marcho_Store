@@ -117,7 +117,7 @@ function cleanImg() {
 }
 
 function svgSprites() {
-  return src("app/img/icons/*.svg")
+  return src("app/images/icon/*.svg")
     .pipe(
       svgSprite({
         mode: {
@@ -128,7 +128,7 @@ function svgSprites() {
         },
       })
     )
-    .pipe(dest("app/img"));
+    .pipe(dest("app/images"));
 }
 
 exports.browsersync = browsersync;

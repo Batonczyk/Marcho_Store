@@ -11,7 +11,6 @@ spinerAnimation.addEventListener('click', async function (e) {
         try {
             const dataCardInfo = await fetch('https://fakestoreapi.com/products');
             const response = await dataCardInfo.json();
-            console.log(response)
             for (let i = countCard; i < countCard + 3 && i < response.length; i++) {
                 const newCard = createCard(response[i]);
                 productList.appendChild(newCard);
