@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="menu header__inner">
+                <a class="logo header__logo" href="#">
+                    <img class="logo__img" src="./images/logo.png" alt="Logo">
+                </a>
+                <ul class="menu__list">
+                    <li class="menu__item menu__item">
+                        <a class="menu__link menu__link--active" href="#">
+                            HOME
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            SHOP
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            PAGE
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            BLOG
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            CONTACT
+                        </a>
+                    </li>
+                </ul>
+                <ul class="menu__user">
+                    <li class="menu__user-nav">
+                        <a class="menu__user-link" href="#">
+                            <svg class="svg-btn" fill="none">
+                                <use xlink:href="images/sprite.svg#user"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="menu__user-nav">
+                        <a class="menu__user-link" href="#">
+                            <svg class="svg-btn" fill="none">
+                                <use xlink:href="images/sprite.svg#search"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="menu__user-nav">
+                        <a class="menu__user-link" href="#">
+                            <svg class="svg-btn" fill="none">
+                                <use xlink:href="images/sprite.svg#heart"></use>
+                            </svg>
+                            <span class="menu__user-num">0</span>
+                        </a>
+                    </li>
+                    <li class="menu__user-nav">
+                        <a class="menu__user-link" href="#">
+                            <svg class="svg-btn" fill="none">
+                                <use xlink:href="images/sprite.svg#cart"></use>
+                            </svg>
+                            <span class="menu__user-num" data-count>0</span>
+                        </a>
+                    </li>
+                    <div class="cart">
+                        <div class="cart__box">
+                            <h3 class="cart__title title">
+                                Cart Store
+                            </h3>
+                            <ul class="cart__options">
+                                <li class="cart__continue" data-continue>
+                                    continue shopping
+                                </li>
+                                <li class="cart__clear" data-clear>
+                                    Clear cart
+                                </li>
+                            </ul>
+                            <ul class="cart__inner"></ul>
+                            <div class="cart-total">
+                                <div class="cart-total__price">
+                                    <p class="cart-total__total">
+                                        <strong>Total price</strong>
+                                    </p>
+                                    <span data-price></span>
+                                </div>
+                                <button class="cart-total__checkout" type="submit">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="top">
+            <div class="top__container" style="            background-image: url('../images/top-bg.jpg');">
+                <div class="container">
+                    <h2 class="top__title title">
+                        LOG IN
+                    </h2>
+                    <div class="breadcrumbs">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link" href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link" href="#">
+                                    Log in
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="modal">
+            <div class="container">
+                <div class="modal__links">
+                    <a class="modal__link" href="#">
+                        REGISTER
+                    </a>
+                    <a class="modal__link" href="#">
+                        LOGIN
+                    </a>
+                </div>
+                <form class="modal__form" action="#">
+                    <label class="modal__label" for="">
+                        Username or email address*
+                        <input class="modal__input" type="text" required>
+                    </label>
+                    <label class="modal__label" for="">
+                        Password*
+                        <input class="modal__input" type="password" required>
+                    </label>
+                    <label class="modal__check" for="">
+                        Remember me
+                        <input class="modal__checkbox" type="checkbox">
+                    </label>
+                    <button class="modal__btn" type="submit">
+                        LOG IN
+                    </button>
+                    <a class="modal__lost" href="#">
+                        Lost your password?
+                    </a>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+
+                <ul class="footer-top__list footer-top__contact">
+                    <a class="logo footer-top__logo" href="#">
+                        <img class="logo__img" src="./images/logo.png" alt="Logo">
+                    </a>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            No. 342 - London Oxford Street,
+                            012 United States
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="mailto: youremail@gmail.com">
+                            youremail@gmail.com
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="tel:+02838388393">
+                            +0283 838 8393
+                        </a>
+                    </li>
+
+                    <ul class="social footer-top__social">
+                        <li class="social__item">
+                            <a class="social__link" href="https://www.facebook.com/" target="_blank">
+                                <span class="sr-only">facebook</span>
+                                <svg class="social__svg" fill="none">
+                                    <use xlink:href="images/sprite.svg#facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="social__item">
+                            <a class="social__link" href="https://twitter.com/?lang=pl" target="_blank">
+                                <span class="sr-only">twitter</span>
+                                <svg class="social__svg" fill="none">
+                                    <use xlink:href="images/sprite.svg#twitter"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="social__item">
+                            <a class="social__link" href="https://pl.linkedin.com/?original_referer=" target="_blank">
+                                <span class="sr-only">linkedin</span>
+                                <svg class="social__svg" fill="none">
+                                    <use xlink:href="images/sprite.svg#linkedin"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="social__item">
+                            <a class="social__link" href="https://www.google.com/intl/pl/gmail/about/" target="_blank">
+                                <span class="sr-only">google gmail</span>
+                                <svg class="social__svg" fill="none">
+                                    <use xlink:href="images/sprite.svg#google"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="social__item">
+                            <a class="social__link" href="https://pl.pinterest.com/" target="_blank">
+                                <span class="sr-only">pinterest</span>
+                                <svg class="social__svg" fill="none">
+                                    <use xlink:href="images/sprite.svg#pinterest"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+
+                <ul class="footer-top__list footer-top__nav">
+                    <h3 class="footer-top__title">
+                        Useful Links
+                    </h3>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            Terms & Conditions
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            Contact Us
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            Help & Support
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="footer-top__list footer-top__nav">
+                    <h3 class="footer-top__title">
+                        My Account
+                    </h3>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            My Account
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            My Cart
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            My WIshlist
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            Registration
+                        </a>
+                    </li>
+                    <li class="footer-top__item">
+                        <a class="footer-top__link" href="#">
+                            Check Out
+                        </a>
+                    </li>
+                </ul>
+                <form class="footer-top__form" action="">
+                    <h3 class="footer-top__title">
+                        Subscribe Our Newsletter
+                    </h3>
+                    <p class="footer-top__text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                    </p>
+                    <label for="inp"></label>
+                    <input class="footer-top__inp" type="email" id="inp" placeholder="Your email address" required>
+                    <button class="footer-top__btn">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-bottom__copy">
+                    © 2019 CodeAstrology. All Rights Reserved.
+                </p>
+                <div class="footer-bottom__accept">
+                    <span>We Accept</span>
+                    <img class="footer-bottom__img" src="images/card/mastercard.png" alt="We Accept Mastercard">
+                    <img class="footer-bottom__img" src="images/card/visa.png" alt="We Accept Visa">
+                    <img class="footer-bottom__img" src="images/card/paypal.png" alt="We Accept PayPal">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/module/cart.js" defer></script>
+</body>
+
+</html>
