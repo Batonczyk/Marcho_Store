@@ -688,12 +688,52 @@
             color: $white;
         }
 
-        &__lost{
+        &__lost {
             color: $accent-color;
         }
 
-        &__text{
+        &__text {
             margin-bottom: 25px;
+        }
+    }
+
+    .page-err {
+        padding: 110px 0 120px;
+
+        &__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__content {
+            max-width: 570px;
+            width: 100%;
+        }
+
+        &__title {
+            margin-bottom: 40px;
+            @extend %roboto-700;
+            font-size: 48px;
+            color: #28384f;
+        }
+
+        &__text {
+            max-width: 470px;
+            margin-bottom: 55px;
+        }
+
+        &__link {
+            padding: 14px 35px;
+            background-color: $accent-color;
+            text-transform: uppercase;
+            color: $white;
+            @extend %roboto-400;
+            box-shadow: 0px 5px 25px 0px rgba(254, 62, 87, 0.35);
+
+            &:hover {
+              transform: scale(1.1);
+            }
         }
     }
 }

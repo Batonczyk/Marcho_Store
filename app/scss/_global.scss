@@ -23,6 +23,10 @@ body {
     margin: 0 auto;
 }
 
+.header--page-err{
+    background-color: $bg;
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
