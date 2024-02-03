@@ -23,7 +23,11 @@ function browsersync() {
 }
 
 function scripts() {
-  return src(["app/js/module/*.js"])
+  return src([
+    "node_modules/jquery/dist/jquery.js",
+    "node_modules/select2/dist/js/select2.js",
+    "app/js/module/*.js",
+  ])
     .pipe(concat("script.min.js"))
     .pipe(uglify())
     .pipe(dest("app/js/minjs"))

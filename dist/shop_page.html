@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logpage/m.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logpage/m.png">
     <link rel="stylesheet" href="./css/style.min.css">
-    <title>Reservet</title>
+    <title>Shop Page</title>
 </head>
 
 <body>
@@ -132,22 +134,291 @@
             <div class="container">
                 <div class="shop__container">
                     <aside class="shop__filters filter">
-                        <div class="filter__search">
-                            <h3 class="filter__search-title">
+                        <div class="filter-search filter__item">
+                            <h3 class="filter-search__title filter__title">
                                 Search
                             </h3>
-                            <form class="filter-form" action="#">
-                                <input class="filter-form__input" type="text" placeholder="Search your keyword....">
-                                <button class="filter-form__btn" type="button">
-                                    <svg class="svg-search" fill="none">
+                            <form class="filter-search__form" action="#">
+                                <input class="filter-search__input" type="text" placeholder="Search your keyword....">
+                                <button class="filter-search__btn" type="button">
+                                    <svg class="filter-search__svg" fill="none">
                                         <use xlink:href="images/sprite.svg#search"></use>
                                     </svg>
                                 </button>
                             </form>
                         </div>
+                        <div class="filter-price filter__item">
+                            <h3 class="filter-search__title filter__title">
+                                Price Filter
+                            </h3>
+                            <div class="filter-price__track"></div>
+                            <input class="filter-price__range" type="range" min="0" max="15000" value="0"
+                                data-slide-one>
+                            <input class="filter-price__range" type="range" min="0" max="15000" value="3000"
+                                data-slide-two>
+                            <div class="filter-price__box">
+                                <div class="filter-price__price">
+                                    Price:
+                                    <span data-price-min>$0</span>
+                                    -
+                                    <span data-price-max>$3000</span>
+                                </div>
+                                <button class="filter-price__btn">
+                                    FILTER
+                                </button>
+                            </div>
+                        </div>
+                        <div class="filter-color filter__item">
+                            <h3 class="filter-color__title filter__title">
+                                Color Filter
+                            </h3>
+                            <form class="filter-color__form" action="#">
+                                <label class="filter-color__label">
+                                    <span class="filter-color__text">Blue (15)</span>
+                                    <div class="filter-color__box">
+                                        <input class="filter-color__input" type="checkbox">
+                                        <span class="filter-color__checkbox filter-color__checkbox--blue"></span>
+                                    </div>
+                                </label>
+                                <label class="filter-color__label">
+                                    <span class="filter-color__text">Red (5)</span>
+                                    <div class="filter-color__box">
+                                        <input class="filter-color__input" type="checkbox">
+                                        <span class="filter-color__checkbox filter-color__checkbox--red"></span>
+                                    </div>
+                                </label>
+                                <label class="filter-color__label">
+                                    <span class="filter-color__text">Green (10)</span>
+                                    <div class="filter-color__box">
+                                        <input class="filter-color__input" type="checkbox">
+                                        <span class="filter-color__checkbox filter-color__checkbox--green"></span>
+                                    </div>
+                                </label>
+                                <label class="filter-color__label">
+                                    <span class="filter-color__text">Orange (150)</span>
+                                    <div class="filter-color__box">
+                                        <input class="filter-color__input" type="checkbox">
+                                        <span class="filter-color__checkbox filter-color__checkbox--orange"></span>
+                                    </div>
+                                </label>
+                                <label class="filter-color__label">
+                                    <span class="filter-color__text">Black (12)</span>
+                                    <div class="filter-color__box">
+                                        <input class="filter-color__input" type="checkbox">
+                                        <span class="filter-color__checkbox filter-color__checkbox--black"></span>
+                                    </div>
+                                </label>
+                                <label class="filter-color__label">
+                                    <span class="filter-color__text">Fiolet (5)</span>
+                                    <div class="filter-color__box">
+                                        <input class="filter-color__input" type="checkbox">
+                                        <span class="filter-color__checkbox filter-color__checkbox--fiolet"></span>
+                                    </div>
+                                </label>
+                            </form>
+                        </div>
+                        <div class="filter-size filter__item">
+                            <h3 class="filter__title">
+                                Size Filter
+                            </h3>
+                            <form class="filter-size__form" action="#">
+                                <label class="filter-size__label">
+                                    <input class="filter-size__input" type="checkbox">
+                                    <span class="filter-size__checkbox"></span>
+                                    <span class="filter-size__text">
+                                        X-small
+                                        <span>
+                                </label>
+                                <label class="filter-size__label">
+                                    <input class="filter-size__input" type="checkbox">
+                                    <span class="filter-size__checkbox"></span>
+                                    <span class="filter-size__text">
+                                        Small
+                                        <span>
+                                </label>
+                                <label class="filter-size__label">
+                                    <input class="filter-size__input" type="checkbox">
+                                    <span class="filter-size__checkbox"></span>
+                                    <span class="filter-size__text">
+                                        Medium
+                                        <span>
+                                </label>
+                                <label class="filter-size__label">
+                                    <input class="filter-size__input" type="checkbox">
+                                    <span class="filter-size__checkbox"></span>
+                                    <span class="filter-size__text">
+                                        Large
+                                        <span>
+                                </label>
+                                <label class="filter-size__label">
+                                    <input class="filter-size__input" type="checkbox">
+                                    <span class="filter-size__checkbox"></span>
+                                    <span class="filter-size__text">
+                                        XXL
+                                        <span>
+                                </label>
+                            </form>
+                        </div>
+                        <div class="filter-category filter__item">
+                            <h3 class="filter-category__title filter__title">
+                                CATEGORY
+                            </h3>
+                            <form action="#" class="filter-category__form">
+                                <label class="filter-category__label">
+                                    <input class="filter-category__input" type="checkbox">
+                                    <div class="filter-category__checkbox">
+                                        <span>Woman</span>
+                                        <span>48</span>
+                                    </div>
+                                </label>
+                                <label class="filter-category__label">
+                                    <input class="filter-category__input" type="checkbox">
+                                    <div class="filter-category__checkbox">
+                                        <span>Man</span>
+                                        <span>30</span>
+                                    </div>
+                                </label>
+                                <label class="filter-category__label">
+                                    <input class="filter-category__input" type="checkbox">
+                                    <div class="filter-category__checkbox">
+                                        <span>Sale Products</span>
+                                        <span>92</span>
+                                    </div>
+                                </label>
+                                <label class="filter-category__label">
+                                    <input class="filter-category__input" type="checkbox">
+                                    <div class="filter-category__checkbox">
+                                        <span>Fasion</span>
+                                        <span>121</span>
+                                    </div>
+                                </label>
+                                <label class="filter-category__label">
+                                    <input class="filter-category__input" type="checkbox">
+                                    <div class="filter-category__checkbox">
+                                        <span>Hot Dresses</span>
+                                        <span>52</span>
+                                    </div>
+                                </label>
+                                <label class="filter-category__label">
+                                    <input class="filter-category__input" type="checkbox">
+                                    <div class="filter-category__checkbox">
+                                        <span>Accessories</span>
+                                        <span>88</span>
+                                    </div>
+                                </label>
+                            </form>
+                        </div>
+                        <div class="filter-popular filter__item">
+                            <h3 class="filter-popular__title filter__title">
+                                Popular Tags
+                            </h3>
+                            <form class="filter-popular__form" action="#">
+                                <label class="filter-popular__label">
+                                    <input class="filter-popular__input" type="checkbox">
+                                    <span class="filter-popular__checkbox">
+                                        Sweetshirt
+                                    </span>
+                                </label>
+                                <label class="filter-popular__label">
+                                    <input class="filter-popular__input" type="checkbox">
+                                    <span class="filter-popular__checkbox">
+                                        Man Accessories
+                                    </span>
+                                </label>
+                                <label class="filter-popular__label">
+                                    <input class="filter-popular__input" type="checkbox">
+                                    <span class="filter-popular__checkbox">
+                                        Fashion
+                                    </span>
+                                </label>
+                                <label class="filter-popular__label">
+                                    <input class="filter-popular__input" type="checkbox">
+                                    <span class="filter-popular__checkbox">
+                                        Polo
+                                    </span>
+                                </label>
+                                <label class="filter-popular__label">
+                                    <input class="filter-popular__input" type="checkbox">
+                                    <span class="filter-popular__checkbox">
+                                        T-Shirt
+                                    </span>
+                                </label>
+                                <label class="filter-popular__label">
+                                    <input class="filter-popular__input" type="checkbox">
+                                    <span class="filter-popular__checkbox">
+                                        Jewellery
+                                    </span>
+                                </label>
+                            </form>
+                        </div>
                     </aside>
-                    <div class="shop__inner">
-
+                    <div class="shop-content">
+                        <div class="shop-content__filter">
+                            <div class="shop-content__filter-btns">
+                                View
+                                <button class="shop-content__filter-btn shop-content__filter-btn--active">
+                                    <svg class="svg-btn svg-btn--active" fill="none">
+                                        <use xlink:href="images/sprite.svg#grid"></use>
+                                    </svg>
+                                </button>
+                                <button class="shop-content__filter-btn">
+                                    <svg class="svg-btn" fill="none">
+                                        <use xlink:href="images/sprite.svg#list"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="select-box shop-content__filter-select">
+                                <select class="select-box__item shop-content__filter-sort">
+                                    <option value="1">Sort By Default</option>
+                                    <option value="2">Sort By New</option>
+                                    <option value="3">Sort by cheapest</option>
+                                    <option value="4">Sort by most expensive</option>
+                                </select>
+                                <select class="select-box__item shop-content__filter-show">
+                                    <option value="1">Show 9</option>
+                                    <option value="2">Show 12</option>
+                                    <option value="3">Show 24</option>
+                                    <option value="4">Show 32</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="shop-content__inner">
+                            <ul class="shop-content__list">
+                                <li class="product-item" data-cart="11">
+                                    <div class="product-item__img-box">
+                                        <img class="product-item__images" src="images/product/product1.jpg"
+                                            alt="product 1">
+                                        <div class="product-item__box">
+                                            <a class="product-item__link" href="#">
+                                                <svg class="product-item__icon" fill="none">
+                                                    <use xlink:href="images/sprite.svg#search"></use>
+                                                </svg>
+                                            </a>
+                                            <a class="product-item__link product-item__link--line" href="#" data-btn>
+                                                <svg class="product-item__icon" fill="none">
+                                                    <use xlink:href="images/sprite.svg#bag"></use>
+                                                </svg>
+                                            </a>
+                                            <a class="product-item__link" href="#">
+                                                <svg class="product-item__icon" fill="none">
+                                                    <use xlink:href="images/sprite.svg#heart"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-item__star" data-rating="0">
+                                        das
+                                    </div>
+                                    <h4 class="product-item__title">
+                                        White Polo Men’s T-Shirt
+                                    </h4>
+                                    <ul class="product-item__price">
+                                        <li class="product-item__new">$34.00</li>
+                                        <li class="product-item__old">$27.00</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -312,6 +583,9 @@
         </div>
     </footer>
     <script src="js/module/cart.js" defer></script>
+    <script src="js/module/rangeSlider.js" defer></script>
+    <script src="js/module/stylerSelect.js" defer></script>
+    <script src="js/module/star.js" defer></script>
 </body>
 
 </html>

@@ -5,7 +5,11 @@
 @import 'star';
 @import 'orders';
 @import 'search';
+@import 'filters';
 @import 'timer';
+@import 'sliderRange';
+@import 'selectStyle';
+@import 'libs';
 @import 'reset';
 
 .header {
@@ -750,44 +754,49 @@
             margin-right: 30px;
         }
     }
-}
 
-.filter-search {
-
-    &__form {
-        display: flex;
-    }
-
-    &__input {
-        padding: 0 5px 0 15px;
-        height: 50px;
-        max-width: 260px;
+    .shop-content {
         width: 100%;
-        background-color: $bg;
-        border: none;
-        transition: outline .3s ease;
 
-        &:focus {
-            outline: 1px solid $accent-color;
+        &__filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px 20px 30px;
+            margin-bottom: 40px;
+            border: 1px solid $bgsecond;
+        }
+
+
+        &__filter-btns {
+            display: flex;
+            align-items: center;
+        }
+
+        &__filter-btn {
+            margin-left: 15px;
+            line-height: 0;
+        }
+
+        &__filter-btn:nth-child(1) svg {
+            width: 15px;
+            height: 15px;
+            &.svg-btn--active {
+                    fill: $accent-color;
+            }
+        }
+
+        &__filter-btn:nth-child(2) svg {
+            width: 20px;
+            height: 15px;
         }
     }
-
-    &__btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        border: none;
-        background-color: $accent-color;
-    }
-
-    &__svg {
-        width: 15px;
-        height: 15px;
-        fill: $white;
-    }
 }
+
+
+
+
+
 
 .footer {
     background-color: $bg;

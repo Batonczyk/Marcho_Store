@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon nodeServer/index.js"
-  },    
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -33,9 +33,11 @@
     "express-validator": "^7.0.1",
     "gulp-cheerio": "^1.0.0",
     "gulp-file-include": "^2.3.0",
+    "jquery": "^3.7.1",
     "nodemailer": "^6.9.8",
     "readable": "^1.1.3",
     "readable-stream": "^4.4.2",
+    "select2": "^4.1.0-rc.0",
     "stream": "^0.0.2"
   },
   "description": ""
