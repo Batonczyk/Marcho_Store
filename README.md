@@ -11,6 +11,8 @@
   <img alt="Static Badge" src="https://img.shields.io/badge/JS-%23fcd303?style=flat">
 </p>
 
+## A project in the process of being written....
+
 ## About
 Marcho-Store is a dynamic online store, designed to provide users with a unique shopping experience. We specialize in fashion for men and women, offering a wide selection of clothing to suit a variety of tastes and lifestyles.
 
