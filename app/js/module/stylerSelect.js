@@ -1,3 +1,3 @@
 $(function() {
-    $('.select-box__item').select2();
+    $('.select-box__item').select2({});
 });

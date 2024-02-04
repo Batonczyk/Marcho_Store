@@ -38,7 +38,7 @@ const cartModule = (function () {
         const cartItems = cartWrapper.children;
         const hasItems = cartItems.length > 0;
     
-        checkoutBtn.setAttribute('href', hasItems ? 'http://localhost:3000/page.html?' : 'javascript:void(0)');
+        checkoutBtn.setAttribute('href', hasItems ? 'http://localhost:3000/order_placement.html?' : 'javascript:void(0)');
     
         if (!hasItems) {
             checkoutBtn.removeEventListener('click', handleCheckoutClick); 

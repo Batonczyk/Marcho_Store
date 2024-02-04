@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="images/logpage/m.png">
     <link rel="stylesheet" href="./css/style.min.css">
-    <title>Register</title>
+    <title>Order Placement</title>
 </head>
 
 <body>
@@ -106,59 +106,87 @@
         </div>
     </header>
     <main class="main">
-        <section class="top">
-            <div class="top__container" style="            background-image: url('../images/top-bg.jpg');">
-                <div class="container">
-                    <h2 class="top__title title">
-                        REGISTER
-                    </h2>
-                    <div class="breadcrumbs">
-                        <ul class="breadcrumbs__list">
-                            <li class="breadcrumbs__item">
-                                <a class="breadcrumbs__link" href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li class="breadcrumbs__item">
-                                <a class="breadcrumbs__link" href="#">
-                                    REGISTER
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="modal">
+        <section class="order">
             <div class="container">
-                <div class="modal__links">
-                    <a class="modal__link" href="#">
-                        REGISTER
-                    </a>
-                    <a class="modal__link" href="#">
-                        LOGIN
-                    </a>
+                <div class="order__inner">
+                    <h2 class="title order__title">
+                        Order placement
+                    </h2>
+                    <div class="order__container">
+                        <form class="order-form">
+                            <div class="order-form__box">
+                                <div class="order-form__data">
+                                    <h4 class="order-form__title">
+                                        Your contact details
+                                    </h4>
+                                    <label for="name"></label>
+                                    <input class="order-form__name" type="text" id="name" placeholder="Name" name="name">
+                                    <span class="order-form__errors" data-for="name"></span>
+                                    <label for="surname"></label>
+                                    <input class="order-form__surname" type="text" id="surname"
+                                        placeholder="Surname" name="surname">
+                                        <span class="order-form__errors" data-for="surname"></span>
+                                    <label for="email"></label>
+                                    <input class="order-form__email" type="email" id="email"
+                                        placeholder="Email" name="email">
+                                        <span class="order-form__errors" data-for="email"></span>
+                                    <label for="phone"></label>
+                                    <input class="order-form__phone" type="text" id="phone"
+                                        placeholder="Prone namber" name="phone">
+                                        <span class="order-form__errors" data-for="phone"></span>
+                                </div>
+                                <div class="order-form__delivery">
+                                    <h4 class="order-form__title">
+                                        Delivery
+                                    </h4>
+                                    <label for="country">Country</label>
+                                    <select id="country" data-country="country" name="country"></select>
+                                    <label for="city">City</label>
+                                    <input id="city" data-city="city" name="city"></input>
+                                    <label for="street">Street</label>
+                                    <input type="text" id="street" name="street">
+                                    <label for="postid">Postal code</label>
+                                    <input type="text" id="postid" name="postid">
+                                    <span class="order-form__errors" data-for="postid"></span>
+                                    <ul class="order-form__list">
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="order-form__submit" type="submit">
+                                Confirm
+                            </button>
+                        </form>
+                        <div class="order__ordering">
+                            <h4 class="order__title-ordering">
+                                Ordering
+                            </h4>
+                            <ul class="order-form__order">
+
+                            </ul>
+                        </div>
+                        <aside class="order-checkout">
+                            <h2 class="order-checkout__title">
+                                Total
+                            </h2>
+                            <table class="order-checkout__table">
+                                <tr class="order-checkout__row">
+                                    <td>Shipping costs</td>
+                                    <td><b data-count>0</b></td>
+                                </tr>
+                                <tr class="order-checkout__row">
+                                    <td data-textdeliv>Delivery free</td>
+                                    <td data-deliv>Yes</td>
+                                </tr>
+                                <tr class="order-checkout__row">
+                                    <td>Amount</td>
+                                    <td><b data-price></b></td>
+                                </tr>
+                            </table>
+                        </aside>
+                    </div>
+
+
                 </div>
-                <form class="modal__form" action="#">
-                    <label class="modal__label" for="">
-                        Username or email address*
-                        <input class="modal__input" type="text" required>
-                    </label>
-                    <label class="modal__label" for="">
-                        Password*
-                        <input class="modal__input" type="password" required>
-                    </label>
-                    <p class="modal__text">
-                        Welcome to our community! Thank you for registering. We would like to inform you that while using our services, we will process your personal data. We assure you that we prioritize the security and privacy of your information in accordance with applicable data protection regulations. We make every effort to treat your data with respect and use it only in accordance with your preferences.
-                    </p>
-                    <label class="modal__check" for="">
-                       Agree with Terms & Conditional
-                        <input class="modal__checkbox" type="checkbox">
-                    </label>
-                    <button class="modal__btn" type="submit">
-                        REGISTER
-                    </button>
-                </form>
             </div>
         </section>
     </main>
@@ -321,6 +349,7 @@
         </div>
     </footer>
     <script src="js/module/cart.js" defer></script>
+    <script src="js/module/order.js" defer></script>
 </body>
 
 </html>

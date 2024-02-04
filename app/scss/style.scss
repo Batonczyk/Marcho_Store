@@ -9,6 +9,7 @@
 @import 'timer';
 @import 'sliderRange';
 @import 'selectStyle';
+@import 'pagination';
 @import 'libs';
 @import 'reset';
 
@@ -758,6 +759,17 @@
     .shop-content {
         width: 100%;
 
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 1px solid $bgsecond;
+
+            .product-item {
+                margin-bottom: 40px;
+            }
+        }
+
         &__filter {
             display: flex;
             justify-content: space-between;
@@ -778,25 +790,25 @@
             line-height: 0;
         }
 
+        &__filter-btn svg {
+            fill: $default;
+        }
+
         &__filter-btn:nth-child(1) svg {
             width: 15px;
             height: 15px;
-            &.svg-btn--active {
-                    fill: $accent-color;
-            }
         }
 
         &__filter-btn:nth-child(2) svg {
             width: 20px;
             height: 15px;
         }
+
+        .svg-btn--active {
+            fill: $accent-color;
+        }
     }
 }
-
-
-
-
-
 
 .footer {
     background-color: $bg;

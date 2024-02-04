@@ -4,13 +4,25 @@ const concat = require("gulp-concat");
 const uglify = require("gulp-uglify-es").default;
 const scss = require("gulp-sass")(require("sass"));
 const autoprefixer = require("gulp-autoprefixer");
-const cheerio = require("gulp-cheerio");
-const svgSprite = require("gulp-svg-sprite");
 const cleancss = require("gulp-clean-css");
 const includes = require("gulp-file-include");
 const imagecomp = require("gulp-imagemin");
+const svgSprite = require("gulp-svg-sprite");
 const clean = require("gulp-clean");
-const plumber = require("gulp-plumber");
+
+const modules = [
+  "cart.js",
+  "card.js",
+  "order.js",
+  "popup.js",
+  "search.js",
+  "Sliderv2.js",
+  "star.js",
+  "star.js",
+  "rangeSlider.js",
+  "stylerSelect.js",
+  "timer.js",
+];
 
 function browsersync() {
   browserSync.init({
@@ -23,15 +35,19 @@ function browsersync() {
 }
 
 function scripts() {
-  return src([
-    "node_modules/jquery/dist/jquery.js",
-    "node_modules/select2/dist/js/select2.js",
-    "app/js/module/*.js",
-  ])
-    .pipe(concat("script.min.js"))
-    .pipe(uglify())
-    .pipe(dest("app/js/minjs"))
-    .pipe(browserSync.stream());
+  const tasks = modules.map((module) => {
+    return src([
+      `node_modules/jquery/dist/jquery.js`,
+      `node_modules/select2/dist/js/select2.js`,
+      `app/js/module/${module}`,
+    ])
+      .pipe(concat(`${module.replace('.js', '.min.js')}`))
+      .pipe(uglify())
+      .pipe(dest("app/js/minjs"))
+      .pipe(browserSync.stream());
+  });
+
+  return Promise.all(tasks);
 }
 
 function includeS() {
@@ -105,7 +121,7 @@ function buildcopy() {
     [
       "app/**/*.html",
       "app/css/style.min.css",
-      "app/js/minjs/script.min.js",
+      "app/js/minjs/*.min.js", // Zmienione, aby uwzględnić wszystkie pliki minifikowane
       "app/img/**/*.*",
     ],
     {
@@ -142,5 +158,5 @@ exports.imageMin = imageMin;
 exports.cleanImg = cleanImg;
 exports.includes = includeS;
 exports.svgSprites = svgSprites;
-exports.build = series(cleanImg, imageMin, buildcopy);
-exports.default = parallel(includeS, svgSprites, styles, scripts, browsersync, startWatch);
+exports.build = series(cleanImg, imageMin, scripts, styles, includeS, svgSprites, buildcopy);
+exports.default = parallel(styles, scripts, browsersync, startWatch);

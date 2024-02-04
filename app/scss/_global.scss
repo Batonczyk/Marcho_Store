@@ -152,6 +152,97 @@ body {
     max-width: 370px;
     text-align: center;
 
+    &.list-active {
+        min-width: 100%;
+        display: flex;
+        text-align: left;
+
+        &:hover {
+            .product-item__box {
+                transform: translateY(-280%);
+            }
+        }
+
+        .product-item__img-box {
+            min-width: 200px;
+            height: 250px;
+            margin-bottom: 0;
+
+            .product-item__images {
+                height: 250px;
+            }
+        }
+
+        .product-item__content-box p {
+            margin-bottom: 25px;
+        }
+
+        .product-item__content-box button{
+            padding: 11px 40px;
+            background-color: $link-text;
+            color: $white;
+            transition: background-color .2s ease, box-shadow .2s ease;
+            &:hover{
+                background-color: $accent-color;
+                box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
+            }
+        }
+        .product-item__box {
+            bottom: auto;
+            width: 115px;
+            box-shadow: none;
+            background-color: transparent;
+
+            .product-item__link {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: $white;
+            }
+
+            .product-item__link--line {
+                display: none;
+            }
+        }
+
+        .product-item__content-box {
+            display: block;
+        }
+
+        .product-item__wrapper-box {
+            padding: 30px 40px;
+            border: 1px solid $bgsecond;
+            border-left: none;
+        }
+
+        .product-item__title {
+            padding: 0;
+            margin-bottom: 10px;
+            order: -1;
+            width: 100%;
+        }
+
+        .product-item__price {
+            order: -1;
+        }
+
+        .product-item__star {
+            margin-left: 23px;
+        }
+
+        .product-item__list-box {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__content-box {
+        display: none;
+    }
+
     &__img-box {
         position: relative;
         height: 370px;

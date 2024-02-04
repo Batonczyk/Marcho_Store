@@ -5,11 +5,11 @@ let slides = [...slidesContainer.children];
 console.log(slides.length)
 const firstCloneSlide = slides[0].cloneNode(true),
     lastClonedSlide = slides[slides.length - 1].cloneNode(true);
-firstCloneSlide.classList.add('clonefirst'),
+    firstCloneSlide.classList.add('clonefirst'),
     lastClonedSlide.classList.add('clonelast');
-slidesContainer.append(firstCloneSlide),
+    slidesContainer.append(firstCloneSlide),
     slidesContainer.prepend(lastClonedSlide);
-slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
+    slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
 let ind = 1;
 let position;
 console.log(slides)
